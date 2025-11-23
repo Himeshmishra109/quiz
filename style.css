@@ -1,0 +1,46 @@
+:root{
+  --card-bg: rgba(255,255,255,0.98);
+  --accent: #6f42c1;
+}
+*{box-sizing:border-box}
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;min-height:100vh;
+  background:linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);padding:30px;}
+
+.slider-card{max-width:900px;border-radius:18px;background:var(--card-bg);overflow:hidden;transition:transform .25s ease; }
+.slider-card:hover{transform:translateY(-6px)}
+
+.slide{
+  min-height:180px;
+  padding:18px;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.9));
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  position:relative;
+  overflow:hidden;
+}
+
+.slide-enter{animation:slideIn .35s ease both}
+.slide-exit{animation:slideOut .35s ease both}
+
+@keyframes slideIn{
+  from{opacity:0; transform:translateX(20px)}
+  to{opacity:1; transform:translateX(0)}
+}
+@keyframes slideOut{
+  from{opacity:1; transform:translateX(0)}
+  to{opacity:0; transform:translateX(-20px)}
+}
+
+.option-label{cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;transition:background .15s ease, transform .12s ease; border:1px solid rgba(13,110,253,0.06)}
+.option-label:hover{background:rgba(13,110,253,0.04); transform:translateX(6px)}
+.option-selected{border-color:rgba(13,110,253,0.2); background:rgba(13,110,253,0.04)}
+
+.list-group-item-success{background:linear-gradient(90deg,#dff0d8,#f7fff7)}
+.list-group-item-danger{background:linear-gradient(90deg,#f8d7da,#fff6f7)}
+
+#qIndicator{font-size:14px; padding:8px 12px}
+
+@media (max-width:576px){
+  .slider-card{border-radius:12px}
+  .slide{padding:12px}
+}
